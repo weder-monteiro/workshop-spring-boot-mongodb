@@ -2,16 +2,21 @@ package br.com.redew.workshopmongodb.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document // ou @Document(collection = "user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
 	private String id;
 	private String name;
 	private String email;
-	
+
 	public User() {
 	}
-	
+
 	public User(String id, String name, String email) {
 		this.id = id;
 		this.name = name;
