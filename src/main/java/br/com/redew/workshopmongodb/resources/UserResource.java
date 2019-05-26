@@ -47,4 +47,10 @@ public class UserResource {
 		// ResponseEntity.created returna o codigo 201 com cabecalho do novo objeto criado
 		return ResponseEntity.created(uri).build();
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE) // ou @DeleteMapping
+	public ResponseEntity<Void> delete(@PathVariable String id) {
+		service.delete(id);
+		return ResponseEntity.noContent().build(); //Operação e não tem que retornar nada resposta e 204 
+	}
 }
