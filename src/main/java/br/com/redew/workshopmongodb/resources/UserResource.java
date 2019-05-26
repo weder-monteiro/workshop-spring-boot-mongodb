@@ -53,4 +53,12 @@ public class UserResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build(); //Operação e não tem que retornar nada resposta e 204 
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT) // ou @PostMapping
+	public ResponseEntity<Void> update(@RequestBody UserDTO userDTO, @PathVariable String id) {
+		User user = service.fromDTO(userDTO);
+		user.setId(id);
+		user = service.update(user);
+		return ResponseEntity.noContent().build(); //Operação e não tem que retornar nada resposta e 204 
+	}
 }
