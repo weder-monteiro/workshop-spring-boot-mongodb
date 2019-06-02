@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import br.com.redew.workshopmongodb.dto.AuthorDTO;
 
-@Document
+@Document // ou @Document(collection = "post")
 public class Post implements Serializable {
 	private static final long serialVersionUID = 1L;
 
